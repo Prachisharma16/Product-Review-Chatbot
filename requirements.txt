@@ -2,3 +2,4 @@ pandas
 tabulate
 flask
 google-genai
+python-dotenv

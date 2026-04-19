@@ -1,11 +1,15 @@
 from flask import Flask, request, render_template_string, session
 from google import genai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 # Configure Gemini API
-client = genai.Client(api_key="AIzaSyDCU3tw0J2ZKnpYHbM4OKNktxIEACqJx2Q")
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 @app.route('/', methods=['GET', 'POST'])
 def chatbot():
